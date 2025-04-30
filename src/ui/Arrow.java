@@ -12,11 +12,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Transform;
 
-/**
- * @author XJL
- * @date 2017-09-18
- * @version 1.0.0
- */
+
 public class Arrow extends Group {
     private Line line;  //箭头的直线部分
 

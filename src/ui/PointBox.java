@@ -9,10 +9,7 @@ import javafx.scene.text.Text;
 
 /**
  * 绘图面板上的顶点显示类，继承StackPane类目的是使顶点中的文本自动居中
- * @author XJL
- * @version 1.1.0
- * @date 2017-09-19
- */
+ **/
 public class PointBox extends StackPane {
     private DoubleProperty centerX = new SimpleDoubleProperty();	//顶点中心的X属性
     private DoubleProperty centerY = new SimpleDoubleProperty();	//顶点中心的y属性

@@ -6,12 +6,7 @@ import java.util.Collection;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * 有向图的处理工具类
- * @author YSJ
- * @version 1.0.0
- * @date 2017-09-15
- */
+
 public class GraphProcessor {
 	/**
 	 * 根据文件路径（名称）生成有向图

@@ -37,12 +37,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
-/**
- * 主窗口控制类
- * @author XJL YSJ
- * @version 1.2.0
- * @date 2017-09-15
- */
+
 public class BaseWindowController {
 	@FXML private MenuBar menuBar;				//菜单栏
 	@FXML private MenuItem saveMenuItem;		//“另存为”菜单项
@@ -53,6 +48,8 @@ public class BaseWindowController {
 	@FXML private Button generateButton;		//“生成新文本”按钮
 	@FXML private Button pathButton;			//“求最短路径”按钮
 	@FXML private Button walkButton;			//“随机游走”按钮
+	@FXML private Button calculatePageRankButton; //“计算pr”按钮
+	//@FXML private TextArea prOutputTextArea;    //用于显示PR值的TextArea
 
 	@FXML private ScrollPane canvasContainer;	//画布面板的容器面板
 	@FXML private AnchorPane canvasPane;		//画布面板，用于画有向图
@@ -102,6 +99,7 @@ public class BaseWindowController {
 			generateButton.setDisable(false);
 			pathButton.setDisable(false);
 			walkButton.setDisable(false);
+			calculatePageRankButton.setDisable(false);
 		}
 	}
 
@@ -307,6 +305,52 @@ public class BaseWindowController {
 		stackPane.getChildren().add(pane);
 	}
 
+	/**
+	 * "Calculate PageRank"按钮被点击时的事件处理方法
+	 */
+//	@FXML
+//	protected void handleCalculatePageRankButtonClicked(MouseEvent e) {
+//		// 假设有一个directedGraph实例在控制器中
+//		Map<String, Double> prValues = graph.calculatePageRank(0.85, 50);
+//
+//		// 显示或处理PageRank值
+//		// 例如，将每个节点的PR值显示在一个文本区域或日志中
+//		prValues.forEach((vertexName, prValue) -> {
+//			System.out.println("Vertex: " + vertexName + ", PageRank: " + prValue);
+//		});
+	@FXML
+	protected void handleCalculatePageRankButtonClicked(MouseEvent e) {
+		if (graph != null) {
+			Map<String, Double> prValues = graph.calculatePageRank(0.85, 20);
+			StringBuilder output = new StringBuilder();
+			prValues.forEach((vertexName, prValue) -> {
+				String formattedValue = String.format("%.6f", prValue); // 保留6位小数
+				output.append("Vertex: ").append(vertexName).append(", PageRank: ").append(formattedValue).append("\n");
+			});
+
+			// 创建新的Stage用于显示结果
+			Stage newStage = new Stage();
+			TextArea prOutputTextArea = new TextArea(output.toString());
+			prOutputTextArea.setEditable(false); // 设置为不可编辑
+			prOutputTextArea.setWrapText(true); // 自动换行
+
+			Scene scene = new Scene(prOutputTextArea, 400, 300);
+			newStage.setTitle("PageRank Results");
+			newStage.setScene(scene);
+			newStage.show();
+		} else {
+			// 创建新的Stage用于显示错误信息
+			Stage newStage = new Stage();
+			TextArea errorText = new TextArea("Graph has not been initialized.");
+			errorText.setEditable(false);
+			errorText.setWrapText(true);
+
+			Scene scene = new Scene(errorText, 250, 150);
+			newStage.setTitle("Error");
+			newStage.setScene(scene);
+			newStage.show();
+		}
+	}
 	/**
 	 * “随机游走”按钮被点击时的事件处理方法，面板显示方法同上
 	 */
@@ -889,4 +933,5 @@ public class BaseWindowController {
 			}
 		}
 	}
+
 }
