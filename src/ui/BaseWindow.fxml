@@ -85,6 +85,7 @@
                               <Button fx:id="queryButton" mnemonicParsing="false" onMouseClicked="#handleQueryButtonClicked" prefHeight="40.0" prefWidth="120.0" text="查询桥接词" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <Button fx:id="generateButton" mnemonicParsing="false" onMouseClicked="#handleGenerateButtonClicked" prefHeight="40.0" prefWidth="120.0" text="生成新文本" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <Button fx:id="pathButton" mnemonicParsing="false" onMouseClicked="#handlePathButtonClicked" prefHeight="40.0" prefWidth="120.0" text="求最短路径" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                               <Button fx:id="calculatePageRankButton" mnemonicParsing="false" onMouseClicked="#handleCalculatePageRankButtonClicked" prefHeight="40.0" prefWidth="120.0" text="计算PageRank" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                               <Button fx:id="walkButton" mnemonicParsing="false" onMouseClicked="#handleWalkButtonClicked" prefHeight="40.0" prefWidth="120.0" text="随机游走" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>

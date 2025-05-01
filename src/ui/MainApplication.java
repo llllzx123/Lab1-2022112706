@@ -22,6 +22,7 @@ public class MainApplication extends Application {
 		Button generateBT = (Button)loader.getNamespace().get("generateButton");
 		Button pathBT = (Button)loader.getNamespace().get("pathButton");
 		Button walkBT = (Button)loader.getNamespace().get("walkButton");
+		Button prBT = (Button)loader.getNamespace().get("calculatePageRankButton");
 		//将暂时不可用的控件设置为不可用
 		saveMI.setDisable(true);
 		textBT.setDisable(true);
@@ -30,6 +31,7 @@ public class MainApplication extends Application {
 		generateBT.setDisable(true);
 		pathBT.setDisable(true);
 		walkBT.setDisable(true);
+		prBT.setDisable(true);
 		Scene scene = new Scene(root);
 		stage.setTitle("软件工程实验一");
 		stage.setScene(scene);

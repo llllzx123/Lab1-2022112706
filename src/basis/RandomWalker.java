@@ -7,12 +7,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 
-/**
- * 随机游走的线程控制类
- * @author XJL
- * @version 1.0.0
- * @date 2017-09-20
- */
+
 public class RandomWalker implements Runnable {
     private TextArea area;				//随机游走控制面板的结果显示区域
     private ArrayList<Vertex> vertices;	//有向图的顶点列表
