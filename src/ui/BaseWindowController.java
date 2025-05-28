@@ -55,8 +55,8 @@ public class BaseWindowController {
 	@FXML private AnchorPane canvasPane;		//画布面板，用于画有向图
 	@FXML private TextArea console;				//控制台，用于显示各种信息
 	@FXML private StackPane stackPane;			//控制按钮面板的容器
-	
-	private DirectedGraph graph;				//有向图
+
+	protected DirectedGraph graph;				//有向图
 	private File dataFile;						//源文本文件对象
 	
 	private static HashMap<String, PointBox> points = new HashMap<>();				//<顶点名称,绘图面板中对应的绘图顶点>
@@ -777,14 +777,14 @@ public class BaseWindowController {
 	}
 
 	/**
-	 * 求解并在绘图面板上标注最短路径，返回最短路径的长度信息
-	 * @param startName 路径起点名称
-	 * @param endName 路径终点名称
-	 * @return 最短路径的长度信息
-	 */
-	private String calcShortestPath(String startName, String endName) {
-		ArrayList<Vertex> vertices = this.graph.getVertices();
-		Vertex startVertex = null;
+//	 * 求解并在绘图面板上标注最短路径，返回最短路径的长度信息
+//	 * @param startName 路径起点名称
+//	 * @param endName 路径终点名称
+//	 * @return 最短路径的长度信息
+//	 */
+	protected String calcShortestPath(String startName, String endName) {
+	ArrayList<Vertex> vertices = this.graph.getVertices();
+	Vertex startVertex = null;
 		Vertex endVertex = null;
 		for (Vertex v : vertices) {
 			if (v.name.equals(startName) ) {
